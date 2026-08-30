@@ -1,0 +1,144 @@
+.products-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  color: #111;
+  font-family: 'Manrope', sans-serif;
+}
+
+.products-page-main {
+  flex: 1;
+  padding: 4rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.products-page-title-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.products-page-title-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.products-page-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.products-filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.detailed-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .detailed-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+.detailed-product-item {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailed-product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.product-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.detailed-product-item:hover .product-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-info h3 {
+  font-size: 1rem;
+  margin: 0 0 5px;
+  font-weight: 700;
+  color: #111;
+}
+
+.product-info p {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0 0 15px;
+  flex: 1;
+}
+
+.inquire-product-btn {
+  background-color: #f5f5f5;
+  color: #111;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.inquire-product-btn:hover {
+  background-color: #921313;
+  color: #fff;
+  border-color: #921313;
+}
+
+@media (min-width: 768px) {
+  .product-info {
+    padding: 20px;
+  }
+  .product-info h3 {
+    font-size: 1.25rem;
+  }
+  .product-info p {
+    font-size: 0.9rem;
+    margin: 0 0 20px;
+  }
+  .inquire-product-btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+}
