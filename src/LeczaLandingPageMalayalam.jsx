@@ -9,8 +9,7 @@ export default function LeczaLandingPage() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header" id="top">
         <a className="brand" href="#top" aria-label="LECZA home">
-          <img src="/LECZA-LOGO.png" alt="LECZA Logo" className="brand-logo" />
-          <span className="brand-text-new"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+          <img src="/logo.png" alt="LECZA Logo" className="brand-logo" />
         </a>
         <button className={`menu-button ${isMobileMenuOpen ? 'open' : ''}`} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-controls="site-nav-new">
           <span className="dark-bar"></span><span className="dark-bar"></span><span className="dark-bar"></span><span className="sr-only">Open menu</span>
@@ -199,11 +198,11 @@ export default function LeczaLandingPage() {
           <a href="tel:+919745055044">+91 97450 55044 <span>↗</span></a>
         </section>
       </main>
-      
+
       <footer className="site-footer-new">
         <div className="footer-top">
           <div className="footer-cta">
-            <h2>Ready to elevate<br/><em>your space?</em></h2>
+            <h2>Ready to elevate<br /><em>your space?</em></h2>
             <a href="#top" className="footer-btn">Start a Project <span>↗</span></a>
           </div>
           <div className="footer-links-grid">
@@ -216,7 +215,7 @@ export default function LeczaLandingPage() {
             </div>
             <div className="footer-col">
               <h4>Contact</h4>
-              <p>Hillton Convention Center<br/>Manjeri, Malappuram<br/>Kerala - 676122</p>
+              <p>Hillton Convention Center<br />Manjeri, Malappuram<br />Kerala - 676122</p>
               <a href="mailto:cladcraftinnovations@gmail.com" className="footer-contact-link">cladcraftinnovations@gmail.com</a>
               <a href="tel:+919745055044" className="footer-contact-link">+91 97450 55044</a>
             </div>
@@ -228,11 +227,32 @@ export default function LeczaLandingPage() {
             </div>
           </div>
         </div>
-        
+
+        <div className="footer-branches-section" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px', paddingBottom: '40px' }}>
+          <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', color: '#666', marginBottom: '20px', fontWeight: '700' }}>Branch Details</h4>
+          <div className="footer-links-grid" style={{ gap: '30px' }}>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Ernakulam, Panayikulam</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>XIV/575C Ground Floor, Alangad<br/>Panayikulam, Ernakulam 683511</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kollam, Mylakkad</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Bldg XVI/650, Adhichanallor Panchayath<br/>Mylakkad P.O, Kollam 691571</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kannur, Narath</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Step Road, Narath<br/>Kannur 670601</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Malappuram, Manjeri</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Door No. EP.15/352-361<br/>Edavanna, Pathapiriyam, School Padi</p>
+            </div>
+          </div>
+        </div>
+
         <div className="footer-bottom">
           <a className="brand footer-brand-new" href="#top">
-            <img src="/LECZA-LOGO.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
-            <span className="brand-text-new footer-brand-text"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+            <img src="/logo-footer.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
           </a>
           <p className="copyright-new">
             © {new Date().getFullYear()} LECZA BY GLADCRAFT | Designed & Developed by <a href="https://www.seconders.tech" target="_blank" rel="noopener noreferrer" style={{ color: '#921313', fontWeight: '600', textDecoration: 'none' }}>www.seconders.tech</a>
@@ -243,7 +263,7 @@ export default function LeczaLandingPage() {
           </div>
         </div>
       </footer>
-      
+
     </>
   );
 }

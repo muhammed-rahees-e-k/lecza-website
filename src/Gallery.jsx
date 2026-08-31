@@ -19,7 +19,7 @@ export default function Gallery() {
               and natural stones, designed to<br />
               inspire and built to last.
             </p>
-            <Link to="/gallery" className="gallery-explore-btn">
+            <Link to="/gallery" className="btn-primary-new">
               Explore All Projects <span>↗</span>
             </Link>
           </div>
@@ -45,9 +45,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Living Room</h3>
-              <p>Elegant surfaces for<br/>warm and welcoming spaces.</p>
+              {/* <p>Elegant surfaces for<br/>warm and welcoming spaces.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
@@ -59,9 +59,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Bathroom</h3>
-              <p>Refined textures for<br/>a soothing experience.</p>
+              {/* <p>Refined textures for<br/>a soothing experience.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
@@ -73,9 +73,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Kitchen</h3>
-              <p>Surfaces that blend beauty<br/>with everyday function.</p>
+              {/* <p>Surfaces that blend beauty<br/>with everyday function.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
@@ -87,9 +87,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Commercial Spaces</h3>
-              <p>Durable and stylish solutions<br/>for professional spaces.</p>
+              {/* <p>Durable and stylish solutions<br/>for professional spaces.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
@@ -101,9 +101,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Outdoor Spaces</h3>
-              <p>Built to endure. Designed<br/>to impress outdoors.</p>
+              {/* <p>Built to endure. Designed<br/>to impress outdoors.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
@@ -115,9 +115,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Retail Spaces</h3>
-              <p>Surfaces that elevate<br/>your brand environment.</p>
+              {/* <p>Surfaces that elevate<br/>your brand environment.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
@@ -129,9 +129,9 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Tile Details</h3>
-              <p>Close-up views of texture,<br/>finish and craftsmanship.</p>
+              {/* <p>Close-up views of texture,<br/>finish and craftsmanship.</p> */}
             </div>
-            <button className="card-arrow">→</button>
+            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
       </div>

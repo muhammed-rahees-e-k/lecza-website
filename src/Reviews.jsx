@@ -3,28 +3,22 @@ import './Reviews.css';
 
 const reviewsData = [
   {
-    text: "The quality of tiles and stones from Lecza is exceptional. They completely transformed our home with elegance and style.",
-    name: "Sneha Raj",
-    role: "Homeowner, Kochi",
-    image: "https://ui-avatars.com/api/?name=Sneha+Raj&background=f4f4f4&color=333"
+    text: "The quality of LECZA large format vitrified slabs in our latest luxury villa in Manjeri exceeded expectations. Flawless surface flatness, zero batch variation, and top-tier durability.",
+    name: "Ar. Farooq Rahman",
+    role: "Lead Architect, Studio Vista, Calicut",
+    image: "https://ui-avatars.com/api/?name=Ar.+Farooq+Rahman&background=f4f4f4&color=333"
   },
   {
-    text: "From selection to delivery, the team was professional and supportive. The finish and detail of their products are outstanding.",
-    name: "Arun Menon",
-    role: "Architect, Calicut",
-    image: "https://ui-avatars.com/api/?name=Arun+Menon&background=f4f4f4&color=333"
+    text: "We sourced both terracotta roof tiles and natural granite cladding from LECZA for a 40-unit premium township. The timely supply and export-grade consistency are truly commendable.",
+    name: "K. Narayanan",
+    role: "MD, Apex Builders, Kochi",
+    image: "https://ui-avatars.com/api/?name=K.+Narayanan&background=f4f4f4&color=333"
   },
   {
-    text: "Lecza offers a perfect blend of premium quality and timeless design. Our retail space looks truly sophisticated now.",
-    name: "Fathima Noor",
-    role: "Business Owner, Dubai",
-    image: "https://ui-avatars.com/api/?name=Fathima+Noor&background=f4f4f4&color=333"
-  },
-  {
-    text: "Great collection, competitive pricing, and excellent customer service. Highly recommended for any interior project.",
-    name: "Vishnu Prasad",
-    role: "Contractor, Bangalore",
-    image: "https://ui-avatars.com/api/?name=Vishnu+Prasad&background=f4f4f4&color=333"
+    text: "We have been importing natural slate and designer tiles from CLADCRAFT INNOVATIONS LLP for our UAE hotel projects. Exceptional packaging, pristine finishes, and solid reliability.",
+    name: "Jameel Al-Ghamdi",
+    role: "Procurement Lead, Gulf Horizon, Dubai",
+    image: "https://ui-avatars.com/api/?name=Jameel+Al-Ghamdi&background=f4f4f4&color=333"
   }
 ];
 
@@ -43,14 +37,13 @@ export default function Reviews() {
               <div className="reviews-quote-line"></div>
             </div>
           </div>
-          
+
           <div className="reviews-subtitle-area">
             <div className="reviews-vertical-divider"></div>
             <div className="reviews-subtitle-content">
-              <p>We take pride in delivering surfaces<br/>that inspire trust and elevate spaces.<br/>Here's what our clients have to say<br/>about their experience with Lecza.</p>
+              <p>We take pride in delivering surfaces<br />that inspire trust and elevate spaces.<br />Here's what our clients have to say<br />about their experience with Lecza.</p>
               <div className="reviews-carousel-dots">
                 <span className="dot active"></span>
-                <span className="dot"></span>
                 <span className="dot"></span>
                 <span className="dot"></span>
               </div>

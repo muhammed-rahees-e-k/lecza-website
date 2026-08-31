@@ -22,8 +22,7 @@ export default function App() {
       {isLoading && (
         <div className="splash-screen">
           <div className="splash-content">
-            <img src="/LECZA-LOGO.png" alt="LECZA Logo" className="splash-logo" />
-            <span className="splash-text"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+            <img src="/logo.png" alt="LECZA Logo" className="splash-logo" />
           </div>
         </div>
       )}

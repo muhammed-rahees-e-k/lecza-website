@@ -34,24 +34,23 @@ export default function ProductsPage() {
 
   const categories = ['All', 'Ceramic Tiles', 'Porcelain Tiles', 'Natural Stones', 'Sanitaryware', 'Outdoor'];
 
-  const filteredItems = activeTab === 'All' 
-    ? productItems 
+  const filteredItems = activeTab === 'All'
+    ? productItems
     : productItems.filter(item => item.category === activeTab);
 
   return (
     <div className="products-page-container">
       <header className={`site-header light-header ${isScrolled ? 'scrolled' : ''}`} id="top">
         <Link to="/" className="brand" aria-label="LECZA home">
-          <img src="/LECZA-LOGO.png" alt="LECZA Logo" className="brand-logo" />
-          <span className="brand-text-new"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+          <img src="/logo.png" alt="LECZA Logo" className="brand-logo" />
         </Link>
 
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
-          <a href="/#top" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></a>
-          <a href="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></a>
+          <Link to="/#top" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
+          <Link to="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></Link>
           <Link to="/products" className="active" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
           <Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></Link>
-          <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="dot"></span></a>
+          <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="dot"></span></Link>
         </nav>
 
         <button className={`menu-button ${isMobileMenuOpen ? 'open' : ''}`} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-controls="site-nav-new">
@@ -71,8 +70,8 @@ export default function ProductsPage() {
 
         <div className="products-filter-tabs">
           {categories.map(cat => (
-            <button 
-              key={cat} 
+            <button
+              key={cat}
               className={`filter-tab ${activeTab === cat ? 'active' : ''}`}
               onClick={() => setActiveTab(cat)}
             >
@@ -100,15 +99,15 @@ export default function ProductsPage() {
         <div className="footer-top">
           <div className="footer-cta">
             <h2>Ready to elevate<br /><em>your space?</em></h2>
-            <a href="/#top" className="footer-btn">Start a Project <span>↗</span></a>
+            <Link to="/#top" className="footer-btn">Start a Project <span>↗</span></Link>
           </div>
           <div className="footer-links-grid">
             <div className="footer-col">
               <h4>Explore</h4>
               <Link to="/products">Products</Link>
               <Link to="/gallery">Collection</Link>
-              <a href="/#about">About Us</a>
-              <a href="/#reviews">Reviews</a>
+              <Link to="/#about">About Us</Link>
+              <Link to="/#reviews">Reviews</Link>
             </div>
             <div className="footer-col">
               <h4>Contact</h4>
@@ -125,10 +124,31 @@ export default function ProductsPage() {
           </div>
         </div>
 
+        <div className="footer-branches-section" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px', paddingBottom: '40px' }}>
+          <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', color: '#666', marginBottom: '20px', fontWeight: '700' }}>Branch Details</h4>
+          <div className="footer-links-grid" style={{ gap: '30px' }}>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Ernakulam, Panayikulam</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>XIV/575C Ground Floor, Alangad<br/>Panayikulam, Ernakulam 683511</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kollam, Mylakkad</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Bldg XVI/650, Adhichanallor Panchayath<br/>Mylakkad P.O, Kollam 691571</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kannur, Narath</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Step Road, Narath<br/>Kannur 670601</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Malappuram, Manjeri</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Door No. EP.15/352-361<br/>Edavanna, Pathapiriyam, School Padi</p>
+            </div>
+          </div>
+        </div>
+
         <div className="footer-bottom">
           <Link to="/" className="brand footer-brand-new">
-            <img src="/LECZA-LOGO.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
-            <span className="brand-text-new footer-brand-text"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+            <img src="/logo-footer.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
           </Link>
           <p className="copyright-new">
             © {new Date().getFullYear()} LECZA BY GLADCRAFT | Designed & Developed by <a href="https://www.seconders.tech" target="_blank" rel="noopener noreferrer" style={{ color: '#921313', fontWeight: '600', textDecoration: 'none' }}>www.seconders.tech</a>

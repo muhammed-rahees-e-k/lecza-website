@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Products from './Products';
 import Gallery from './Gallery';
 import Reviews from './Reviews';
@@ -9,6 +9,20 @@ export default function LeczaLandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('top');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100); // slight delay to ensure render
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,8 +58,7 @@ export default function LeczaLandingPage() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className={`site-header light-header ${isScrolled ? 'scrolled' : ''}`} id="top">
         <a className="brand" href="#top" aria-label="LECZA home">
-          <img src="/LECZA-LOGO.png" alt="LECZA Logo" className="brand-logo" />
-          <span className="brand-text-new"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+          <img src="/logo.png" alt="LECZA Logo" className="brand-logo" />
         </a>
 
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
@@ -70,19 +83,19 @@ export default function LeczaLandingPage() {
               <p className="hero-intro-new">Curated tiles and natural stones for spaces<br />where material, light and lasting<br />performance meet.</p>
               <div className="hero-actions-new">
                 <Link to="/gallery" className="btn-primary-new">Explore Collection <span>↗</span></Link>
-                <button className="btn-play-new">
+                {/* <button className="btn-play-new">
                   <span className="play-icon-new">▶</span>
                   Watch Showcase
-                </button>
+                </button> */}
               </div>
             </div>
-            <div className="slider-nav-new">
+            {/* <div className="slider-nav-new">
               <span className="slide-count-new"><strong>01</strong> / 03</span>
               <div className="slider-arrows-new">
                 <button aria-label="Previous">←</button>
                 <button aria-label="Next">→</button>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -142,10 +155,7 @@ export default function LeczaLandingPage() {
                 More than surfaces.<br />We craft <em>experiences.</em>
               </h2>
               <p className="about-new-desc animate-on-scroll delay-200">
-                Lecza is where quality materials meet thoughtful design.<br />
-                We bring you a curated range of premium tiles and natural<br />
-                stones that transform everyday spaces into timeless<br />
-                expressions of beauty and strength.
+                LECZA by CLADCRAFT INNOVATIONS LLP delivers complete surface solutions crafted for modern spaces. We offer a thoughtfully curated range of premium tiles and natural stones that perfectly blend strength, style, and long-lasting performance for both residential and commercial projects.
               </p>
 
               <div className="about-new-features animate-on-scroll delay-300">
@@ -206,8 +216,9 @@ export default function LeczaLandingPage() {
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="10" width="4" height="10"></rect><rect x="10" y="10" width="4" height="10"></rect><rect x="16" y="10" width="4" height="10"></rect><polygon points="12 2 2 8 22 8"></polygon><line x1="2" y1="22" x2="22" y2="22"></line></svg>
               </div>
               <div className="about-stat-text">
-                <strong>10+</strong>
-                <span>Years of Excellence</span>
+                <strong>500+</strong>
+                <span>Dealers & Distributors</span>
+                <small style={{ display: 'block', fontSize: '0.8rem', color: '#666', marginTop: '4px' }}>Across Kerala, Karnataka & Tamil Nadu</small>
               </div>
             </div>
             <div className="about-stat-item">
@@ -215,8 +226,9 @@ export default function LeczaLandingPage() {
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
               </div>
               <div className="about-stat-text">
-                <strong>500+</strong>
-                <span>Premium Products</span>
+                <strong>60+</strong>
+                <span>Expertise Specialists</span>
+                <small style={{ display: 'block', fontSize: '0.8rem', color: '#666', marginTop: '4px' }}>Surface technologists & QA engineers</small>
               </div>
             </div>
             <div className="about-stat-item">
@@ -224,8 +236,9 @@ export default function LeczaLandingPage() {
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               </div>
               <div className="about-stat-text">
-                <strong>1000+</strong>
-                <span>Happy Customers</span>
+                <strong>3+</strong>
+                <span>Export Destinations</span>
+                <small style={{ display: 'block', fontSize: '0.8rem', color: '#666', marginTop: '4px' }}>Dubai (UAE), Saudi Arabia & Pan-India</small>
               </div>
             </div>
             <div className="about-stat-item">
@@ -233,8 +246,9 @@ export default function LeczaLandingPage() {
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               </div>
               <div className="about-stat-text">
-                <strong>50+</strong>
-                <span>Projects Completed</span>
+                <strong>∞</strong>
+                <span>Infinite Collections</span>
+                <small style={{ display: 'block', fontSize: '0.8rem', color: '#666', marginTop: '4px' }}>Bespoke slab cuts & curated textures</small>
               </div>
             </div>
           </div>
@@ -280,10 +294,31 @@ export default function LeczaLandingPage() {
           </div>
         </div>
 
+        <div className="footer-branches-section" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px', paddingBottom: '40px' }}>
+          <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', color: '#666', marginBottom: '20px', fontWeight: '700' }}>Branch Details</h4>
+          <div className="footer-links-grid" style={{ gap: '30px' }}>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Ernakulam, Panayikulam</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>XIV/575C Ground Floor, Alangad<br/>Panayikulam, Ernakulam 683511</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kollam, Mylakkad</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Bldg XVI/650, Adhichanallor Panchayath<br/>Mylakkad P.O, Kollam 691571</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kannur, Narath</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Step Road, Narath<br/>Kannur 670601</p>
+            </div>
+            <div className="footer-col" style={{ flex: '1 1 200px' }}>
+              <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Malappuram, Manjeri</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Door No. EP.15/352-361<br/>Edavanna, Pathapiriyam, School Padi</p>
+            </div>
+          </div>
+        </div>
+
         <div className="footer-bottom">
           <a className="brand footer-brand-new" href="#top">
-            <img src="/LECZA-LOGO.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
-            <span className="brand-text-new footer-brand-text"><strong>LECZA</strong><small>BY GLADCRAFT</small></span>
+            <img src="/logo-footer.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
           </a>
           <p className="copyright-new">
             © {new Date().getFullYear()} LECZA BY GLADCRAFT | Designed & Developed by <a href="https://www.seconders.tech" target="_blank" rel="noopener noreferrer" style={{ color: '#921313', fontWeight: '600', textDecoration: 'none' }}>www.seconders.tech</a>
