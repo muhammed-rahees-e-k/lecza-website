@@ -45,7 +45,7 @@ export default function GalleryPage() {
         </Link>
 
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
-          <Link to="/#top" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
+          <Link to="/#" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
           <Link to="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></Link>
           <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
           <Link to="/gallery" className="active" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></Link>
@@ -96,7 +96,7 @@ export default function GalleryPage() {
         <div className="footer-top">
           <div className="footer-cta">
             <h2>Ready to elevate<br /><em>your space?</em></h2>
-            <Link to="/#top" className="footer-btn">Start a Project <span>↗</span></Link>
+            <Link to="/#" className="footer-btn">Start a Project <span>↗</span></Link>
           </div>
           <div className="footer-links-grid">
             <div className="footer-col">

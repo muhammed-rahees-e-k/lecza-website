@@ -8,14 +8,14 @@ export default function LeczaLandingPage() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header" id="top">
-        <a className="brand" href="#top" aria-label="LECZA home">
+        <a className="brand" href="#" aria-label="LECZA home">
           <img src="/logo.png" alt="LECZA Logo" className="brand-logo" />
         </a>
         <button className={`menu-button ${isMobileMenuOpen ? 'open' : ''}`} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-controls="site-nav-new">
           <span className="dark-bar"></span><span className="dark-bar"></span><span className="dark-bar"></span><span className="sr-only">Open menu</span>
         </button>
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
-          <a className={activeSection === 'top' ? 'active' : ''} href="#top" onClick={() => { setActiveSection('top'); setIsMobileMenuOpen(false); }}>ഹോം <span className="dot"></span></a>
+          <a className={activeSection === 'top' ? 'active' : ''} href="#" onClick={() => { setActiveSection('top'); setIsMobileMenuOpen(false); }}>ഹോം <span className="dot"></span></a>
           <a className={activeSection === 'about' ? 'active' : ''} href="#about" onClick={() => { setActiveSection('about'); setIsMobileMenuOpen(false); }}>ഞങ്ങളെക്കുറിച്ച് <span className="dot"></span></a>
           <a className={activeSection === 'products' ? 'active' : ''} href="#products" onClick={() => { setActiveSection('products'); setIsMobileMenuOpen(false); }}>ഉൽപ്പന്നങ്ങൾ <span className="dot"></span></a>
           <a className={activeSection === 'collection' ? 'active' : ''} href="#gallery" onClick={() => { setActiveSection('collection'); setIsMobileMenuOpen(false); }}>ശേഖരം <span className="dot"></span></a>
@@ -203,7 +203,7 @@ export default function LeczaLandingPage() {
         <div className="footer-top">
           <div className="footer-cta">
             <h2>Ready to elevate<br /><em>your space?</em></h2>
-            <a href="#top" className="footer-btn">Start a Project <span>↗</span></a>
+            <a href="#" className="footer-btn">Start a Project <span>↗</span></a>
           </div>
           <div className="footer-links-grid">
             <div className="footer-col">
@@ -251,7 +251,7 @@ export default function LeczaLandingPage() {
         </div>
 
         <div className="footer-bottom">
-          <a className="brand footer-brand-new" href="#top">
+          <a className="brand footer-brand-new" href="#">
             <img src="/logo-footer.png" alt="LECZA Logo" style={{ height: '40px', objectFit: 'contain' }} />
           </a>
           <p className="copyright-new">
