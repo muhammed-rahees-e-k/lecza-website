@@ -14,51 +14,60 @@ export default function Products() {
           </h2>
           <div className="products-title-right">
             <p className="products-description">
-              Discover a wide range of premium tiles,<br />
-              natural stones, and sanitaryware tailored<br />
+              Discover a wide range of premium clay, floor drains,<br />
+              jalies, stones, and tiles tailored<br />
               for modern, enduring spaces.
             </p>
-            {/* <Link to="/products" className="products-explore-btn">
+            <Link to="/products" className="btn-primary-new" style={{ alignSelf: 'flex-start' }}>
               View All Products <span>↗</span>
-            </Link> */}
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="products-grid">
         <div className="product-category-card">
-          <img src="/01_living_room.png" alt="Ceramic Tiles" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
+          <img src="/RED SHADOW TILE - F6206 240X60.png" alt="Clay" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
-            <h3>Ceramic Tiles</h3>
-            <p>Versatile and durable solutions.</p>
-            {/* <Link to="/products" className="category-arrow">→</Link> */}
+            <h3>Clay</h3>
+            <p>Earthy and traditional designs.</p>
+            <Link to="/products" className="category-arrow">→</Link>
           </div>
         </div>
 
         <div className="product-category-card">
-          <img src="/02_bathroom.png" alt="Porcelain Tiles" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
+          <img src="/FLOOR DRAINS/LG222 3D.png" alt="Floor Drains" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
-            <h3>Porcelain Tiles</h3>
-            <p>High performance, sleek finish.</p>
-            {/* <Link to="/products" className="category-arrow">→</Link> */}
+            <h3>Floor Drains</h3>
+            <p>Premium quality drainage solutions.</p>
+            <Link to="/products" className="category-arrow">→</Link>
           </div>
         </div>
 
         <div className="product-category-card">
-          <img src="/03_kitchen.png" alt="Natural Stone" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
+          <img src="/JALIES/LILLY JALI.png" alt="Jalies" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
-            <h3>Natural Stone</h3>
+            <h3>Jalies</h3>
+            <p>Intricate and elegant architectural elements.</p>
+            <Link to="/products" className="category-arrow">→</Link>
+          </div>
+        </div>
+
+        <div className="product-category-card">
+          <img src="/BIDASAR BROWN SIZE12X12.png" alt="Stones" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
+          <div className="product-category-content">
+            <h3>Stones</h3>
             <p>Timeless beauty from the earth.</p>
             {/* <Link to="/products" className="category-arrow">→</Link> */}
           </div>
         </div>
 
         <div className="product-category-card">
-          <img src="/07_tile_details.png" alt="Sanitaryware" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
+          <img src="/9803.png" alt="Tiles" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
-            <h3>Sanitaryware</h3>
-            <p>Elegance meets everyday function.</p>
-            {/* <Link to="/products" className="category-arrow">→</Link> */}
+            <h3>Tiles</h3>
+            <p>Versatile and durable surface solutions.</p>
+            <Link to="/products" className="category-arrow">→</Link>
           </div>
         </div>
       </div>

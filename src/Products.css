@@ -80,11 +80,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #111;
-  font-weight: 700;
+  background-color: #921313;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: 600;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s;
+  transition: background-color 0.3s;
 }
 
 .products-explore-btn span {
@@ -92,7 +94,7 @@
 }
 
 .products-explore-btn:hover {
-  color: #921313;
+  background-color: #7a0f0f;
 }
 
 .products-explore-btn:hover span {

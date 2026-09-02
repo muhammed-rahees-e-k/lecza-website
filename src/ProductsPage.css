@@ -46,9 +46,16 @@
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .detailed-products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .detailed-products-grid {
+    grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
   }
 }
@@ -141,4 +148,19 @@
     padding: 10px 15px;
     font-size: 1rem;
   }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-bg {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #eeeeee 4%, #dddddd 25%, #eeeeee 36%);
+  background-size: 1000px 100%;
 }
