@@ -98,16 +98,15 @@ export default function ProductsPage() {
       <footer className="site-footer-new">
         <div className="footer-top">
           <div className="footer-cta">
-            <h2>Ready to elevate<br /><em>your space?</em></h2>
-            <Link to="/#" className="footer-btn">Start a Project <span>↗</span></Link>
+            {/* <Link to="/#" className="footer-btn">Start a Project <span>↗</span></Link> */}
           </div>
           <div className="footer-links-grid">
             <div className="footer-col">
               <h4>Explore</h4>
               <Link to="/products">Products</Link>
               <Link to="/gallery">Collection</Link>
-              <Link to="/#about">About Us</Link>
-              <Link to="/#reviews">Reviews</Link>
+              <a href="/#about">About Us</a>
+              <a href="/#reviews">Reviews</a>
             </div>
             <div className="footer-col">
               <h4>Contact</h4>
