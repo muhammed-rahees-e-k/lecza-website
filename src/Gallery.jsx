@@ -5,7 +5,7 @@ import './Gallery.css';
 export default function Gallery() {
   return (
     <section className="gallery-section" id="gallery">
-      <div className="gallery-header">
+      <div className="gallery-header" data-aos="fade-up">
         <p className="gallery-eyebrow">GALLERY</p>
         <div className="gallery-title-row">
           <h2 className="gallery-title">
@@ -26,18 +26,8 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* <div className="gallery-tabs">
-        <button className="gallery-tab active">All Spaces</button>
-        <button className="gallery-tab">Living Areas</button>
-        <button className="gallery-tab">Bathrooms</button>
-        <button className="gallery-tab">Kitchens</button>
-        <button className="gallery-tab">Commercial</button>
-        <button className="gallery-tab">Outdoor</button>
-        <button className="gallery-tab">Tile Details</button>
-      </div> */}
-
       <div className="gallery-grid">
-        <div className="gallery-card item-living">
+        <div className="gallery-card item-living" data-aos="fade-up" data-aos-delay="100">
           <img src="/01_living_room.png" alt="Living Room" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -45,13 +35,11 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Living Room</h3>
-              {/* <p>Elegant surfaces for<br/>warm and welcoming spaces.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
-        <div className="gallery-card item-bathroom">
+        <div className="gallery-card item-bathroom" data-aos="fade-up" data-aos-delay="200">
           <img src="/02_bathroom.png" alt="Bathroom" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -59,13 +47,11 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Bathroom</h3>
-              {/* <p>Refined textures for<br/>a soothing experience.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
-        <div className="gallery-card item-kitchen">
+        <div className="gallery-card item-kitchen" data-aos="fade-up" data-aos-delay="300">
           <img src="/03_kitchen.png" alt="Kitchen" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -73,13 +59,11 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Kitchen</h3>
-              {/* <p>Surfaces that blend beauty<br/>with everyday function.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
-        <div className="gallery-card item-commercial">
+        <div className="gallery-card item-commercial" data-aos="fade-up" data-aos-delay="400">
           <img src="/04_commercial_space.png" alt="Commercial Spaces" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -87,13 +71,11 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Commercial Spaces</h3>
-              {/* <p>Durable and stylish solutions<br/>for professional spaces.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
-        <div className="gallery-card item-outdoor">
+        <div className="gallery-card item-outdoor" data-aos="fade-up" data-aos-delay="100">
           <img src="/05_outdoor_space.png" alt="Outdoor Spaces" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -101,13 +83,11 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Outdoor Spaces</h3>
-              {/* <p>Built to endure. Designed<br/>to impress outdoors.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
-        <div className="gallery-card item-retail">
+        <div className="gallery-card item-retail" data-aos="fade-up" data-aos-delay="200">
           <img src="/06_retail_space.png" alt="Retail Spaces" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -115,13 +95,11 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Retail Spaces</h3>
-              {/* <p>Surfaces that elevate<br/>your brand environment.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
 
-        <div className="gallery-card item-details">
+        <div className="gallery-card item-details" data-aos="fade-up" data-aos-delay="300">
           <img src="/07_tile_details.png" alt="Tile Details" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="gallery-card-content">
             <div className="card-icon">
@@ -129,9 +107,7 @@ export default function Gallery() {
             </div>
             <div className="card-text">
               <h3>Tile Details</h3>
-              {/* <p>Close-up views of texture,<br/>finish and craftsmanship.</p> */}
             </div>
-            {/* <button className="card-arrow">→</button> */}
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import './Products.css';
 export default function Products() {
   return (
     <section className="products-section" id="products">
-      <div className="products-header">
+      <div className="products-header" data-aos="fade-up">
         <p className="products-eyebrow">OUR PRODUCTS</p>
         <div className="products-title-row">
           <h2 className="products-title">
@@ -26,7 +26,7 @@ export default function Products() {
       </div>
 
       <div className="products-grid">
-        <div className="product-category-card">
+        <div className="product-category-card" data-aos="fade-up" data-aos-delay="100">
           <img src="/RED SHADOW TILE - F6206 240X60.png" alt="Clay" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
             <h3>Clay</h3>
@@ -35,7 +35,7 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="product-category-card">
+        <div className="product-category-card" data-aos="fade-up" data-aos-delay="200">
           <img src="/FLOOR DRAINS/LG222 3D.png" alt="Floor Drains" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
             <h3>Floor Drains</h3>
@@ -44,7 +44,7 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="product-category-card">
+        <div className="product-category-card" data-aos="fade-up" data-aos-delay="300">
           <img src="/JALIES/LILLY JALI.png" alt="Jalies" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
             <h3>Jalies</h3>
@@ -53,16 +53,16 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="product-category-card">
+        <div className="product-category-card" data-aos="fade-up" data-aos-delay="400">
           <img src="/BIDASAR BROWN SIZE12X12.png" alt="Stones" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
             <h3>Stones</h3>
             <p>Timeless beauty from the earth.</p>
-            {/* <Link to="/products" className="category-arrow">→</Link> */}
+            <Link to="/products" className="category-arrow">→</Link>
           </div>
         </div>
 
-        <div className="product-category-card">
+        <div className="product-category-card" data-aos="fade-up" data-aos-delay="500">
           <img src="/9803.png" alt="Tiles" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
           <div className="product-category-content">
             <h3>Tiles</h3>

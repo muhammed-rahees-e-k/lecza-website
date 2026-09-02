@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 import './GalleryPage.css';
 
 export default function GalleryPage() {
@@ -9,6 +10,13 @@ export default function GalleryPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: false,
+      offset: 50,
+    });
+    AOS.refresh();
 
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -47,7 +55,7 @@ export default function GalleryPage() {
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
           <Link to="/#" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
           <Link to="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></Link>
-          {/* <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link> */}
+          <Link to="/#products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
           <Link to="/gallery" className="active" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></Link>
           <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="dot"></span></Link>
         </nav>
@@ -58,7 +66,7 @@ export default function GalleryPage() {
       </header>
 
       <main className="gallery-page-main">
-        <div className="gallery-page-title-section">
+        <div className="gallery-page-title-section" data-aos="fade-up">
           <p className="eyebrow-new">OUR COLLECTION</p>
           <h1>Discover Our Detailed Gallery</h1>
           <p className="gallery-page-subtitle">
@@ -67,7 +75,7 @@ export default function GalleryPage() {
           </p>
         </div>
 
-        <div className="gallery-filter-tabs">
+        <div className="gallery-filter-tabs" data-aos="fade-up" data-aos-delay="100">
           {categories.map(cat => (
             <button
               key={cat}
@@ -80,8 +88,8 @@ export default function GalleryPage() {
         </div>
 
         <div className="detailed-gallery-grid">
-          {filteredItems.map(item => (
-            <div key={item.id} className="detailed-gallery-item">
+          {filteredItems.map((item, idx) => (
+            <div key={item.id} className="detailed-gallery-item" data-aos="fade-up" data-aos-delay={(idx % 6) * 100}>
               <img src={item.src} alt={item.title} onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
               <div className="item-overlay">
                 <h3>{item.title}</h3>

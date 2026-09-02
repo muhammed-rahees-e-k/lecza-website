@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 import './ProductsPage.css';
 import './Products.css';
 
@@ -11,6 +12,13 @@ export default function ProductsPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: false,
+      offset: 50,
+    });
+    AOS.refresh();
 
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -320,7 +328,7 @@ export default function ProductsPage() {
           <Link to="/#" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
           <Link to="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></Link>
           <Link to="/products" className="active" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
-          <Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></Link>
+          <a href="/#gallery" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></a>
           <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="dot"></span></Link>
         </nav>
 
@@ -330,7 +338,7 @@ export default function ProductsPage() {
       </header>
 
       <main className="products-page-main">
-        <div className="products-page-title-section">
+        <div className="products-page-title-section" data-aos="fade-up">
           <p className="eyebrow-new">OUR CATALOG</p>
           <h1>Exceptional Products</h1>
           <p className="products-page-subtitle">
@@ -339,7 +347,7 @@ export default function ProductsPage() {
           </p>
         </div>
 
-        <div className="products-filter-tabs">
+        <div className="products-filter-tabs" data-aos="fade-up" data-aos-delay="100">
           {categories.map(cat => (
             <button
               key={cat}
@@ -352,8 +360,8 @@ export default function ProductsPage() {
         </div>
 
         <div className="detailed-products-grid">
-          {filteredItems.map(item => (
-            <div key={item.id} className="product-category-card">
+          {filteredItems.map((item, idx) => (
+            <div key={item.id} className="product-category-card" data-aos="fade-up" data-aos-delay={(idx % 6) * 50}>
               <img
                 src={item.src}
                 alt={item.title}
@@ -378,7 +386,7 @@ export default function ProductsPage() {
             <div className="footer-col">
               <h4>Explore</h4>
               <Link to="/products">Products</Link>
-              <Link to="/gallery">Collection</Link>
+              <a href="/#gallery">Collection</a>
               <a href="/#about">About Us</a>
               <a href="/#reviews">Reviews</a>
             </div>

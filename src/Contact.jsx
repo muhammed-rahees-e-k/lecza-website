@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container">
-        <div className="contact-info-area">
+        <div className="contact-info-area" data-aos="fade-right">
           <span className="contact-eyebrow">CONTACT US</span>
           <h2 className="contact-title">Let's shape<br /><em>what's next.</em></h2>
           <p className="contact-intro">Tell us what you are creating. Our team will connect you with the right collection.</p>
@@ -40,7 +40,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="contact-form-area">
+        <div className="contact-form-area" data-aos="fade-left" data-aos-delay="200">
           <form className="premium-contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <input type="text" id="name" name="name" required placeholder=" " />

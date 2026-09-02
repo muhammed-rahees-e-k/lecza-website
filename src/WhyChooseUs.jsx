@@ -6,18 +6,18 @@ export default function WhyChooseUs() {
     <section className="why-choose-us-section">
       <div className="why-choose-us-container">
         <div className="why-choose-us-content">
-          <div className="wcu-header">
+          <div className="wcu-header" data-aos="fade-up">
             <span className="wcu-eyebrow">WHY CHOOSE US</span>
             <div className="wcu-line"></div>
           </div>
-          <h2 className="wcu-title">
+          <h2 className="wcu-title" data-aos="fade-up" data-aos-delay="100">
             Beyond tiles.<br />Built around <em>you.</em>
           </h2>
-          <p className="wcu-desc">
+          <p className="wcu-desc" data-aos="fade-up" data-aos-delay="200">
             We go beyond products to deliver experiences.<br />Here's what makes Lecza the preferred choice.
           </p>
 
-          <div className="wcu-grid">
+          <div className="wcu-grid" data-aos="fade-up" data-aos-delay="300">
             <div className="wcu-card">
               <div className="wcu-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"></path><path d="M12 21l-4-12"></path><path d="M12 21l4-12"></path><path d="M2 9h20"></path></svg>
@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
         </div>
       </div>
 
-      <div className="wcu-stats-container">
+      <div className="wcu-stats-container" data-aos="fade-up" data-aos-delay="200">
         <div className="wcu-stats">
           <div className="wcu-stat-item">
             <div className="wcu-stat-icon">

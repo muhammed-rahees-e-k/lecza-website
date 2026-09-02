@@ -26,7 +26,7 @@ export default function Reviews() {
   return (
     <section className="reviews-section" id="reviews">
       <div className="reviews-container">
-        <div className="reviews-header">
+        <div className="reviews-header" data-aos="fade-up">
           <div className="reviews-title-area">
             <span className="reviews-eyebrow">REVIEWS</span>
             <h2 className="reviews-title">
@@ -53,7 +53,7 @@ export default function Reviews() {
 
         <div className="reviews-cards-wrapper">
           {reviewsData.map((review, idx) => (
-            <div className="review-card" key={idx}>
+            <div className="review-card" data-aos="fade-up" data-aos-delay={(idx + 1) * 100} key={idx}>
               <div className="review-card-top">
                 <div className="review-stars">
                   {'★★★★★'.split('').map((star, i) => <span key={i}>{star}</span>)}
@@ -72,7 +72,7 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="reviews-stats-banner">
+        <div className="reviews-stats-banner" data-aos="fade-up" data-aos-delay="200">
           <div className="stat-item">
             <div className="stat-icon-circle">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>

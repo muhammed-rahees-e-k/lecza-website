@@ -17,7 +17,7 @@ export default function LeczaLandingPage() {
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
           <a className={activeSection === 'top' ? 'active' : ''} href="#" onClick={() => { setActiveSection('top'); setIsMobileMenuOpen(false); }}>ഹോം <span className="dot"></span></a>
           <a className={activeSection === 'about' ? 'active' : ''} href="#about" onClick={() => { setActiveSection('about'); setIsMobileMenuOpen(false); }}>ഞങ്ങളെക്കുറിച്ച് <span className="dot"></span></a>
-          {/* <a className={activeSection === 'products' ? 'active' : ''} href="#products" onClick={() => { setActiveSection('products'); setIsMobileMenuOpen(false); }}>ഉൽപ്പന്നങ്ങൾ <span className="dot"></span></a> */}
+          <a className={activeSection === 'products' ? 'active' : ''} href="#products" onClick={() => { setActiveSection('products'); setIsMobileMenuOpen(false); }}>ഉൽപ്പന്നങ്ങൾ <span className="dot"></span></a>
           <a className={activeSection === 'collection' ? 'active' : ''} href="#gallery" onClick={() => { setActiveSection('collection'); setIsMobileMenuOpen(false); }}>ശേഖരം <span className="dot"></span></a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={() => { setActiveSection('contact'); setIsMobileMenuOpen(false); }}>ബന്ധപ്പെടുക <span className="dot"></span></a>
         </nav>
