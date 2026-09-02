@@ -47,7 +47,7 @@ export default function GalleryPage() {
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
           <Link to="/#" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
           <Link to="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></Link>
-          <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
+          {/* <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link> */}
           <Link to="/gallery" className="active" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></Link>
           <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="dot"></span></Link>
         </nav>
@@ -126,19 +126,19 @@ export default function GalleryPage() {
           <div className="footer-links-grid" style={{ gap: '30px' }}>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Ernakulam, Panayikulam</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>XIV/575C Ground Floor, Alangad<br/>Panayikulam, Ernakulam 683511</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />XIV/575C Ground Floor, Alangad<br />Panayikulam, Ernakulam 683511</p>
             </div>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kollam, Mylakkad</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Bldg XVI/650, Adhichanallor Panchayath<br/>Mylakkad P.O, Kollam 691571</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />Bldg XVI/650, Adhichanallor Panchayath<br />Mylakkad P.O, Kollam 691571</p>
             </div>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kannur, Narath</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Step Road, Narath<br/>Kannur 670601</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />Step Road, Narath<br />Kannur 670601</p>
             </div>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Malappuram, Manjeri</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Door No. EP.15/352-361<br/>Edavanna, Pathapiriyam, School Padi</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />Door No. EP.15/352-361<br />Edavanna, Pathapiriyam, School Padi</p>
             </div>
           </div>
         </div>

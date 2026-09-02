@@ -143,7 +143,7 @@
   left: 0;
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -167,9 +167,11 @@
     padding: 30px;
     gap: 8px;
   }
+
   .product-category-content h3 {
     font-size: 1.5rem;
   }
+
   .product-category-content p {
     font-size: 0.85rem;
   }

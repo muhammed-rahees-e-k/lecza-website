@@ -18,9 +18,9 @@ export default function Products() {
               natural stones, and sanitaryware tailored<br />
               for modern, enduring spaces.
             </p>
-            <Link to="/products" className="products-explore-btn">
+            {/* <Link to="/products" className="products-explore-btn">
               View All Products <span>↗</span>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ export default function Products() {
           <div className="product-category-content">
             <h3>Ceramic Tiles</h3>
             <p>Versatile and durable solutions.</p>
-            <Link to="/products" className="category-arrow">→</Link>
+            {/* <Link to="/products" className="category-arrow">→</Link> */}
           </div>
         </div>
 
@@ -40,7 +40,7 @@ export default function Products() {
           <div className="product-category-content">
             <h3>Porcelain Tiles</h3>
             <p>High performance, sleek finish.</p>
-            <Link to="/products" className="category-arrow">→</Link>
+            {/* <Link to="/products" className="category-arrow">→</Link> */}
           </div>
         </div>
 
@@ -49,7 +49,7 @@ export default function Products() {
           <div className="product-category-content">
             <h3>Natural Stone</h3>
             <p>Timeless beauty from the earth.</p>
-            <Link to="/products" className="category-arrow">→</Link>
+            {/* <Link to="/products" className="category-arrow">→</Link> */}
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export default function Products() {
           <div className="product-category-content">
             <h3>Sanitaryware</h3>
             <p>Elegance meets everyday function.</p>
-            <Link to="/products" className="category-arrow">→</Link>
+            {/* <Link to="/products" className="category-arrow">→</Link> */}
           </div>
         </div>
       </div>

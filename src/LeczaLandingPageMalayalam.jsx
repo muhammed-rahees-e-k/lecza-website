@@ -17,7 +17,7 @@ export default function LeczaLandingPage() {
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
           <a className={activeSection === 'top' ? 'active' : ''} href="#" onClick={() => { setActiveSection('top'); setIsMobileMenuOpen(false); }}>ഹോം <span className="dot"></span></a>
           <a className={activeSection === 'about' ? 'active' : ''} href="#about" onClick={() => { setActiveSection('about'); setIsMobileMenuOpen(false); }}>ഞങ്ങളെക്കുറിച്ച് <span className="dot"></span></a>
-          <a className={activeSection === 'products' ? 'active' : ''} href="#products" onClick={() => { setActiveSection('products'); setIsMobileMenuOpen(false); }}>ഉൽപ്പന്നങ്ങൾ <span className="dot"></span></a>
+          {/* <a className={activeSection === 'products' ? 'active' : ''} href="#products" onClick={() => { setActiveSection('products'); setIsMobileMenuOpen(false); }}>ഉൽപ്പന്നങ്ങൾ <span className="dot"></span></a> */}
           <a className={activeSection === 'collection' ? 'active' : ''} href="#gallery" onClick={() => { setActiveSection('collection'); setIsMobileMenuOpen(false); }}>ശേഖരം <span className="dot"></span></a>
           <a className={activeSection === 'contact' ? 'active' : ''} href="#contact" onClick={() => { setActiveSection('contact'); setIsMobileMenuOpen(false); }}>ബന്ധപ്പെടുക <span className="dot"></span></a>
         </nav>
@@ -233,19 +233,19 @@ export default function LeczaLandingPage() {
           <div className="footer-links-grid" style={{ gap: '30px' }}>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Ernakulam, Panayikulam</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>XIV/575C Ground Floor, Alangad<br/>Panayikulam, Ernakulam 683511</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />XIV/575C Ground Floor, Alangad<br />Panayikulam, Ernakulam 683511</p>
             </div>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kollam, Mylakkad</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Bldg XVI/650, Adhichanallor Panchayath<br/>Mylakkad P.O, Kollam 691571</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />Bldg XVI/650, Adhichanallor Panchayath<br />Mylakkad P.O, Kollam 691571</p>
             </div>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Kannur, Narath</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Step Road, Narath<br/>Kannur 670601</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />Step Road, Narath<br />Kannur 670601</p>
             </div>
             <div className="footer-col" style={{ flex: '1 1 200px' }}>
               <strong style={{ color: '#fff', fontSize: '0.9rem' }}>Malappuram, Manjeri</strong>
-              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br/>Door No. EP.15/352-361<br/>Edavanna, Pathapiriyam, School Padi</p>
+              <p style={{ margin: 0, fontSize: '0.85rem' }}>Clad Craft Innovations LLP<br />Door No. EP.15/352-361<br />Edavanna, Pathapiriyam, School Padi</p>
             </div>
           </div>
         </div>
