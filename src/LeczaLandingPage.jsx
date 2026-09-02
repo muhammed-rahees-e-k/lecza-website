@@ -272,15 +272,15 @@ export default function LeczaLandingPage() {
         <div className="footer-top">
           <div className="footer-cta">
             <h2>Ready to elevate<br /><em>your space?</em></h2>
-            <a href="#" className="footer-btn">Start a Project <span>↗</span></a>
+            {/* <a href="#" className="footer-btn">Start a Project <span>↗</span></a> */}
           </div>
           <div className="footer-links-grid">
             <div className="footer-col">
               <h4>Explore</h4>
               <Link to="/products">Products</Link>
               <Link to="/gallery">Collection</Link>
-              <a href="#about">About Us</a>
-              <a href="#reviews">Reviews</a>
+              <a href="/#about">About Us</a>
+              <a href="/#reviews">Reviews</a>
             </div>
             <div className="footer-col">
               <h4>Contact</h4>
