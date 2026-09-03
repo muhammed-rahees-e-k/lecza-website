@@ -76,7 +76,7 @@ export default function LeczaLandingPage() {
         <section className="hero-new" aria-labelledby="hero-title">
           <div className="hero-content-new">
             <div className="hero-text-block">
-              <p className="eyebrow-new" data-aos="fade-up">MANJERI · MALAPPURAM · KERALA</p>
+              {/* <p className="eyebrow-new" data-aos="fade-up">MANJERI · MALAPPURAM · KERALA</p> */}
               <h1 id="hero-title" className="hero-title-new" data-aos="fade-up" data-aos-delay="100">Surfaces that<br />hold a sense<br /><em>of place.</em></h1>
               <p className="hero-intro-new" data-aos="fade-up" data-aos-delay="200">Curated tiles and natural stones for spaces<br />where material, light and lasting<br />performance meet.</p>
               <div className="hero-actions-new" data-aos="fade-up" data-aos-delay="300">
@@ -185,9 +185,37 @@ export default function LeczaLandingPage() {
               </div>
             </div>
 
-            <div className="about-new-image-wrapper" data-aos="fade-left" data-aos-delay="200">
-              <div className="about-red-accent"></div>
-              <img src="/about-img.jpeg" alt="Lecza curated surfaces and materials" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<div class="about-placeholder-img"></div>' }} />
+            <div className="about-new-image-container">
+              <div className="about-new-image-wrapper" data-aos="fade-left" data-aos-delay="200">
+                <div className="about-red-accent"></div>
+                <img src="/about-img.jpeg" alt="Lecza curated surfaces and materials" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<div class="about-placeholder-img"></div>' }} />
+              </div>
+              <div className="about-catalogue-actions" data-aos="fade-up" data-aos-delay="100" data-aos-anchor=".about-new-features">
+                <a
+                  href="/catalogue/LECZA Catalogue 2026 (Compressed File).pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="catalogue-btn catalogue-btn-view"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  <span>View Catalogue</span>
+                </a>
+                <a
+                  href="/catalogue/LECZA Catalogue 2026 (Compressed File).pdf"
+                  download="LECZA Catalogue 2026.pdf"
+                  className="catalogue-btn catalogue-btn-download"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <span>Download</span>
+                </a>
+              </div>
             </div>
           </div>
 

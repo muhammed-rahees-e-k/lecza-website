@@ -31,7 +31,7 @@ export default function LeczaLandingPage() {
             <i></i><i></i><i></i><i></i><i></i><i></i>
           </div>
           <div className="hero-copy">
-            <p className="eyebrow">Manjeri · Malappuram · Kerala</p>
+            {/* <p className="eyebrow">Manjeri · Malappuram · Kerala</p> */}
             <h1 id="hero-title">Surfaces that hold<br /><em>a sense of place.</em></h1>
             <p className="hero-intro">Curated tiles and natural stones for spaces where material, light and lasting performance meet.</p>
             <div className="hero-actions">
