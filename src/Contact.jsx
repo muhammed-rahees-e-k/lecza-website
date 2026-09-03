@@ -18,6 +18,7 @@ export default function Contact() {
 
     const whatsappUrl = `https://wa.me/919745055044?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
+    e.target.reset();
   };
 
   return (
