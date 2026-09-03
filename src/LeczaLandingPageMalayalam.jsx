@@ -212,7 +212,7 @@ export default function LeczaLandingPage() {
               <Link to="/gallery">Collection</Link>
               <a href="/#about">About Us</a>
               <a href="/#reviews">Reviews</a>
-              <a href="#inquiry">Inquiry</a>
+              <a href="#inquiry">Enquiry</a>
             </div>
             <div className="footer-col">
               <h4>Contact</h4>

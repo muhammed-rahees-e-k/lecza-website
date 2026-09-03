@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
         </div>
       </div>
 
-      <div className="wcu-stats-container" data-aos="fade-up" data-aos-delay="200">
+      <div className="wcu-stats-container" data-aos="fade-up" data-aos-offset="0" data-aos-once="true">
         <div className="wcu-stats">
           <div className="wcu-stat-item">
             <div className="wcu-stat-icon">

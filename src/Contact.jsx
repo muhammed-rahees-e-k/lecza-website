@@ -10,10 +10,14 @@ export default function Contact() {
     const phone = formData.get('phone');
     const message = formData.get('message');
 
-    const subject = encodeURIComponent(`New Inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
+    const text = `*New Website Enquiry LECZA*\n\n` +
+      `👤 *Name:* ${name}\n` +
+      `📧 *Email:* ${email}\n` +
+      `📞 *Phone:* ${phone || 'N/A'}\n\n` +
+      `💬 *Message:*\n${message}`;
 
-    window.location.href = `mailto:cladcraftinnovations@gmail.com?subject=${subject}&body=${body}`;
+    const whatsappUrl = `https://wa.me/919745055044?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (

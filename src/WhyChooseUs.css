@@ -1,18 +1,18 @@
 .why-choose-us-section {
-  padding: 80px 5%;
+  padding: 50px 5%;
   background-color: #fdfbf8;
   position: relative;
   overflow: hidden;
   font-family: inherit;
-  background-image: none; /* Hide on mobile to prevent overlapping text */
+  background-image: url('/whychoosus.jpeg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 768px) {
   .why-choose-us-section {
-    background-image: url('/whychoosus.jpeg');
-    background-size: contain; /* Scales image down nicely without clipping */
-    background-position: right center;
-    background-repeat: no-repeat;
+    background-image: none; /* Hide background image on small mobile screens to keep text legible */
   }
 }
 
@@ -21,7 +21,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
 }
 
 @media (min-width: 992px) {
@@ -40,30 +40,30 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .wcu-line {
   width: 40px;
   height: 2px;
-  background-color: #921313; /* Red color */
+  background-color: #921313;
 }
 
 .wcu-eyebrow {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   color: #921313;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .wcu-title {
-  font-size: 3rem;
-  line-height: 1.2;
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  line-height: 1.15;
   color: #1a1a1a;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif; /* Assuming a serif font is available */
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', serif;
 }
 
 .wcu-title em {
@@ -72,16 +72,16 @@
 }
 
 .wcu-desc {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: #555;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .wcu-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 @media (min-width: 768px) {
@@ -97,22 +97,23 @@
 }
 
 .wcu-card {
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 12px;
-  padding: 40px 25px;
+  padding: 24px 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .wcu-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .wcu-icon {
-  margin: 0 auto 20px;
+  margin: 0 auto 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,33 +121,34 @@
 }
 
 .wcu-card h4 {
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #1a1a1a;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-weight: 700;
 }
 
 .wcu-card p {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #666;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
 }
 
 .wcu-stats-container {
   max-width: 1200px;
-  margin: 50px auto 0;
-  background-color: #f6efe8;
-  border-radius: 16px;
-  padding: 30px 40px;
+  margin: 25px auto 0;
+  background-color: rgba(246, 239, 232, 0.92);
+  backdrop-filter: blur(5px);
+  border-radius: 14px;
+  padding: 20px 30px;
 }
 
 .wcu-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
@@ -158,7 +160,7 @@
 .wcu-stat-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .wcu-stat-icon {
@@ -171,14 +173,14 @@
 }
 
 .wcu-stat-text strong {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #1a1a1a;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
 }
 
 .wcu-stat-text span {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #555;
   font-weight: 500;
 }

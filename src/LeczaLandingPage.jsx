@@ -191,7 +191,7 @@ export default function LeczaLandingPage() {
             </div>
           </div>
 
-          <div className="about-new-stats" data-aos="fade-up" data-aos-delay="200">
+          <div className="about-new-stats" data-aos="fade-up" data-aos-offset="0" data-aos-once="true">
             <div className="about-stat-item">
               <div className="about-stat-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="10" width="4" height="10"></rect><rect x="10" y="10" width="4" height="10"></rect><rect x="16" y="10" width="4" height="10"></rect><polygon points="12 2 2 8 22 8"></polygon><line x1="2" y1="22" x2="22" y2="22"></line></svg>
