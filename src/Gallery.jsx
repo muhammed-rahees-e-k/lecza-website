@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Gallery.css';
 
@@ -98,33 +98,57 @@ export default function Gallery() {
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardsToShow, setCardsToShow] = useState(3);
+  const scrollRef = useRef(null);
+  const [activeDot, setActiveDot] = useState(0);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardsToShow(1);
-      } else if (window.innerWidth < 1024) {
-        setCardsToShow(2);
-      } else {
-        setCardsToShow(3);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const maxIndex = Math.max(0, galleryItems.length - cardsToShow);
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const itemWidth = container.children[0]?.clientWidth || 300;
+    const index = Math.round(container.scrollLeft / itemWidth);
+    setActiveDot(Math.min(index, galleryItems.length - 1));
   };
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  const scrollSide = (direction) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollAmount = container.clientWidth * 0.75;
+    container.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  const scrollToDot = (index) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const itemWidth = container.children[0]?.clientWidth || 300;
+    container.scrollTo({
+      left: index * itemWidth,
+      behavior: 'smooth'
+    });
+  };
+
+  // Mouse Drag to Scroll
+  const handleMouseDown = (e) => {
+    setIsMouseDown(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeaveOrUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
@@ -145,10 +169,10 @@ export default function Gallery() {
             </p>
             <div className="gallery-carousel-controls">
               <div className="carousel-arrow-buttons">
-                <button className="carousel-arrow-btn" onClick={prevSlide} aria-label="Previous slide">
+                <button className="carousel-arrow-btn" onClick={() => scrollSide('prev')} aria-label="Previous slide">
                   ‹
                 </button>
-                <button className="carousel-arrow-btn" onClick={nextSlide} aria-label="Next slide">
+                <button className="carousel-arrow-btn" onClick={() => scrollSide('next')} aria-label="Next slide">
                   ›
                 </button>
               </div>
@@ -160,19 +184,18 @@ export default function Gallery() {
         </div>
       </div>
 
-      <div className="gallery-carousel-container" data-aos="fade-up">
+      <div className="gallery-side-scroll-wrapper" data-aos="fade-up">
         <div
-          className="gallery-carousel-slider"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`
-          }}
+          className="gallery-side-scroll-container"
+          ref={scrollRef}
+          onScroll={handleScroll}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeaveOrUp}
+          onMouseUp={handleMouseLeaveOrUp}
+          onMouseMove={handleMouseMove}
         >
           {galleryItems.map((item) => (
-            <div
-              key={item.id}
-              className="gallery-carousel-item"
-              style={{ flex: `0 0 ${100 / cardsToShow}%` }}
-            >
+            <div key={item.id} className="gallery-side-scroll-item">
               <Link to={item.link} className="gallery-card">
                 <img
                   src={item.src}
@@ -194,14 +217,14 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Carousel Pagination Dots */}
+        {/* Side Scroll Pagination Dots */}
         <div className="gallery-carousel-pagination">
-          {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+          {galleryItems.map((_, idx) => (
             <button
               key={idx}
-              className={`pagination-dot ${currentIndex === idx ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
+              className={`pagination-dot ${activeDot === idx ? 'active' : ''}`}
+              onClick={() => scrollToDot(idx)}
+              aria-label={`Go to item ${idx + 1}`}
             />
           ))}
         </div>
