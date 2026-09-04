@@ -342,3 +342,44 @@
   width: 28px;
   border-radius: 10px;
 }
+
+/* Responsive Toggles: Desktop Bento Grid vs Mobile Carousel */
+@media (min-width: 1024px) {
+  .desktop-only-grid {
+    display: grid !important;
+  }
+  .mobile-only-carousel {
+    display: none !important;
+  }
+  .mobile-only-arrows {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-only-grid {
+    display: none !important;
+  }
+  .mobile-only-carousel {
+    display: block !important;
+  }
+  .mobile-only-arrows {
+    display: flex !important;
+  }
+}
+
+/* Original Desktop Bento Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 420px 320px;
+  gap: 20px;
+}
+
+.item-living { grid-column: span 3; }
+.item-bathroom { grid-column: span 2; }
+.item-kitchen { grid-column: span 3; }
+.item-commercial { grid-column: span 2; }
+.item-outdoor { grid-column: span 2; }
+.item-retail { grid-column: span 2; }
+.item-details { grid-column: span 2; }

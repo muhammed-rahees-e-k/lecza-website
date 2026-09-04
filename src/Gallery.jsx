@@ -9,6 +9,7 @@ export default function Gallery() {
       src: '/01_living_room.png',
       title: 'Living Room',
       category: 'Living Areas',
+      gridClass: 'item-living',
       link: '/gallery?category=Living%20Areas',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -21,6 +22,7 @@ export default function Gallery() {
       src: '/02_bathroom.png',
       title: 'Bathroom',
       category: 'Bathrooms',
+      gridClass: 'item-bathroom',
       link: '/gallery?category=Bathrooms',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -33,6 +35,7 @@ export default function Gallery() {
       src: '/03_kitchen.png',
       title: 'Kitchen',
       category: 'Kitchens',
+      gridClass: 'item-kitchen',
       link: '/gallery?category=Kitchens',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -47,6 +50,7 @@ export default function Gallery() {
       src: '/04_commercial_space.png',
       title: 'Commercial Spaces',
       category: 'Commercial',
+      gridClass: 'item-commercial',
       link: '/gallery?category=Commercial',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -61,6 +65,7 @@ export default function Gallery() {
       src: '/05_outdoor_space.png',
       title: 'Outdoor Spaces',
       category: 'Outdoor',
+      gridClass: 'item-outdoor',
       link: '/gallery?category=Outdoor',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -73,6 +78,7 @@ export default function Gallery() {
       src: '/06_retail_space.png',
       title: 'Retail Spaces',
       category: 'Commercial',
+      gridClass: 'item-retail',
       link: '/gallery?category=Commercial',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -85,6 +91,7 @@ export default function Gallery() {
       src: '/07_tile_details.png',
       title: 'Tile Details',
       category: 'Details',
+      gridClass: 'item-details',
       link: '/gallery?category=Details',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#921313" strokeWidth="1.5">
@@ -100,9 +107,6 @@ export default function Gallery() {
 
   const scrollRef = useRef(null);
   const [activeDot, setActiveDot] = useState(0);
-  const [isMouseDown, setIsMouseDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
@@ -115,7 +119,7 @@ export default function Gallery() {
   const scrollSide = (direction) => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
-    const scrollAmount = container.clientWidth * 0.75;
+    const scrollAmount = container.clientWidth * 0.8;
     container.scrollBy({
       left: direction === 'next' ? scrollAmount : -scrollAmount,
       behavior: 'smooth'
@@ -130,25 +134,6 @@ export default function Gallery() {
       left: index * itemWidth,
       behavior: 'smooth'
     });
-  };
-
-  // Mouse Drag to Scroll
-  const handleMouseDown = (e) => {
-    setIsMouseDown(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeaveOrUp = () => {
-    setIsMouseDown(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isMouseDown) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
@@ -168,7 +153,7 @@ export default function Gallery() {
               inspire and built to last.
             </p>
             <div className="gallery-carousel-controls">
-              <div className="carousel-arrow-buttons">
+              <div className="carousel-arrow-buttons mobile-only-arrows">
                 <button className="carousel-arrow-btn" onClick={() => scrollSide('prev')} aria-label="Previous slide">
                   ‹
                 </button>
@@ -184,15 +169,35 @@ export default function Gallery() {
         </div>
       </div>
 
-      <div className="gallery-side-scroll-wrapper" data-aos="fade-up">
+      {/* Desktop View: Original High-End Bento Grid */}
+      <div className="gallery-grid desktop-only-grid" data-aos="fade-up">
+        {galleryItems.map((item) => (
+          <Link key={item.id} to={item.link} className={`gallery-card ${item.gridClass}`}>
+            <img
+              src={item.src}
+              alt={item.title}
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.classList.add('placeholder-bg');
+              }}
+            />
+            <div className="gallery-card-content">
+              <div className="card-icon">{item.icon}</div>
+              <div className="card-text">
+                <h3>{item.title}</h3>
+              </div>
+              <span className="card-arrow">↗</span>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Mobile/Tablet View: Responsive Swipeable Carousel */}
+      <div className="gallery-side-scroll-wrapper mobile-only-carousel" data-aos="fade-up">
         <div
           className="gallery-side-scroll-container"
           ref={scrollRef}
           onScroll={handleScroll}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeaveOrUp}
-          onMouseUp={handleMouseLeaveOrUp}
-          onMouseMove={handleMouseMove}
         >
           {galleryItems.map((item) => (
             <div key={item.id} className="gallery-side-scroll-item">
