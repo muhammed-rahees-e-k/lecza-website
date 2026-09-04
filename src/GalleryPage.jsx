@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import AOS from 'aos';
 import './GalleryPage.css';
@@ -6,6 +6,7 @@ import './GalleryPage.css';
 export default function GalleryPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categories = ['All', 'Living Areas', 'Bathrooms', 'Kitchens', 'Commercial', 'Outdoor', 'Details'];
+  const tabsRef = useRef(null);
 
   const categoryParam = searchParams.get('category');
   const initialTab = useMemo(() => {
@@ -54,6 +55,25 @@ export default function GalleryPage() {
       }
     }
   }, [categoryParam]);
+
+  useEffect(() => {
+    if (tabsRef.current) {
+      const activeEl = tabsRef.current.querySelector('.filter-tab.active');
+      if (activeEl) {
+        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [activeTab]);
+
+  const scrollTabs = (direction) => {
+    if (tabsRef.current) {
+      const scrollAmount = 200;
+      tabsRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const handleTabClick = (cat) => {
     setActiveTab(cat);
@@ -110,16 +130,32 @@ export default function GalleryPage() {
           </p>
         </div>
 
-        <div className="gallery-filter-tabs" data-aos="fade-up" data-aos-delay="100">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              className={`filter-tab ${activeTab === cat ? 'active' : ''}`}
-              onClick={() => handleTabClick(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="filter-tabs-wrapper" data-aos="fade-up" data-aos-delay="100">
+          <button
+            className="tab-scroll-btn prev-btn"
+            onClick={() => scrollTabs('left')}
+            aria-label="Previous categories"
+          >
+            ‹
+          </button>
+          <div className="gallery-filter-tabs" ref={tabsRef}>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                className={`filter-tab ${activeTab === cat ? 'active' : ''}`}
+                onClick={() => handleTabClick(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <button
+            className="tab-scroll-btn next-btn"
+            onClick={() => scrollTabs('right')}
+            aria-label="Next categories"
+          >
+            ›
+          </button>
         </div>
 
         <div className="detailed-gallery-grid">

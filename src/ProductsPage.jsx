@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import './ProductsPage.css';
@@ -9,6 +9,9 @@ export default function ProductsPage() {
   const [activeTab, setActiveTab] = useState('All');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const tabsRef = useRef(null);
+
+  const categories = ['All', 'Clay', 'Floor Drains', 'Jalies', 'Stones', 'Tiles'];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,6 +33,25 @@ export default function ProductsPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (tabsRef.current) {
+      const activeEl = tabsRef.current.querySelector('.filter-tab.active');
+      if (activeEl) {
+        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [activeTab]);
+
+  const scrollTabs = (direction) => {
+    if (tabsRef.current) {
+      const scrollAmount = 200;
+      tabsRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const productItems = [
     { id: 1, src: '/RED SHADOW TILE - F6206 240X60.png', title: 'Terracotta Clay', category: 'Clay' },
@@ -311,8 +333,6 @@ export default function ProductsPage() {
     { id: 246, src: '/TILES/TILES 2X1/ZETA SUPER WHITE.png', title: 'ZETA SUPER WHITE', category: 'Tiles' },
   ];
 
-  const categories = ['All', 'Clay', 'Floor Drains', 'Jalies', 'Stones', 'Tiles'];
-
   const filteredItems = activeTab === 'All'
     ? productItems
     : productItems.filter(item => item.category === activeTab);
@@ -347,16 +367,32 @@ export default function ProductsPage() {
           </p>
         </div>
 
-        <div className="products-filter-tabs" data-aos="fade-up" data-aos-delay="100">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              className={`filter-tab ${activeTab === cat ? 'active' : ''}`}
-              onClick={() => setActiveTab(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="filter-tabs-wrapper" data-aos="fade-up" data-aos-delay="100">
+          <button
+            className="tab-scroll-btn prev-btn"
+            onClick={() => scrollTabs('left')}
+            aria-label="Previous categories"
+          >
+            ‹
+          </button>
+          <div className="products-filter-tabs" ref={tabsRef}>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                className={`filter-tab ${activeTab === cat ? 'active' : ''}`}
+                onClick={() => setActiveTab(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <button
+            className="tab-scroll-btn next-btn"
+            onClick={() => scrollTabs('right')}
+            aria-label="Next categories"
+          >
+            ›
+          </button>
         </div>
 
         <div className="detailed-products-grid">
