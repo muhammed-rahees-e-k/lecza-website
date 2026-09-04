@@ -193,9 +193,9 @@ export default function GalleryPage() {
             </div>
             <div className="footer-col">
               <h4>Social</h4>
-              <a href="#">Instagram</a>
-              <a href="#">Facebook</a>
-              <a href="https://wa.me/919745055044">WhatsApp</a>
+              <a href="https://www.instagram.com/lecza_clad.craft/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.facebook.com/profile.php?id=61568854973018" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://wa.me/919745055044" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
         </div>
