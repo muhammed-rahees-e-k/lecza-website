@@ -143,46 +143,76 @@
   border-radius: 2px 2px 0 0;
 }
 
-/* Grid Layout */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+/* Multi-card Carousel Styles */
+.gallery-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-@media (min-width: 768px) {
-  .gallery-grid {
-    gap: 20px;
-  }
+.carousel-arrow-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-@media (min-width: 1200px) {
-  .gallery-grid {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 450px 350px;
+.carousel-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #1A1A1A;
+  background: transparent;
+  color: #1A1A1A;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.carousel-arrow-btn:hover {
+  background-color: #921313;
+  color: #ffffff;
+  border-color: #921313;
+}
+
+.gallery-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0 30px;
+}
+
+.gallery-carousel-slider {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+}
+
+.gallery-carousel-item {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 380px;
+}
+
+@media (max-width: 640px) {
+  .gallery-carousel-item {
+    height: 300px;
   }
-  .item-living { grid-column: span 3; }
-  .item-bathroom { grid-column: span 2; }
-  .item-kitchen { grid-column: span 3; }
-  .item-commercial { grid-column: span 2; }
-  .item-outdoor { grid-column: span 2; }
-  .item-retail { grid-column: span 2; }
-  .item-details { grid-column: span 2; }
 }
 
 .gallery-card {
   position: relative;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   background-color: #EAE8E3;
   height: 100%;
-  min-height: 220px;
-}
-
-@media (min-width: 768px) {
-  .gallery-card {
-    min-height: 350px;
-  }
+  width: 100%;
+  display: block;
+  text-decoration: none;
 }
 
 .gallery-card.placeholder-bg {
@@ -200,43 +230,42 @@
 }
 
 .gallery-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .gallery-card-content {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
+  bottom: 16px;
+  left: 16px;
   background-color: #F8F7F3;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px 18px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 270px;
-  max-width: calc(100% - 16px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  gap: 12px;
+  width: calc(100% - 32px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
 
 .gallery-card:hover .gallery-card-content {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .card-icon {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background-color: rgba(146, 19, 19, 0.05);
+  background-color: rgba(146, 19, 19, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 .card-text {
@@ -244,47 +273,10 @@
 }
 
 .card-text h3 {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1A1A1A;
-  margin: 0 0 2px 0;
-}
-
-.card-text p {
-  font-size: 0.65rem;
-  color: #555;
   margin: 0;
-  line-height: 1.2;
-}
-
-.card-arrow {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .gallery-card-content {
-    bottom: 20px;
-    left: 20px;
-    padding: 20px;
-    gap: 16px;
-    max-width: calc(100% - 40px);
-  }
-  .card-icon {
-    width: 40px;
-    height: 40px;
-  }
-  .card-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-  .card-text h3 {
-    font-size: 1.1rem;
-    margin: 0 0 4px 0;
-  }
-  .card-text p {
-    font-size: 0.8rem;
-    line-height: 1.4;
-  }
 }
 
 .card-arrow {
@@ -292,22 +284,34 @@
   border: none;
   color: #1A1A1A;
   font-size: 1.2rem;
-  cursor: pointer;
   transition: transform 0.2s ease;
-  padding: 0;
 }
+
 .gallery-card:hover .card-arrow {
   transform: translateX(4px);
 }
 
-/* Active State for Tabs - make sure it overrides other states */
-.gallery-tab.active {
-  background-color: #921313;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin-top: -2px;
+.gallery-carousel-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
 }
-.gallery-tab.active::after {
-  display: none;
+
+.pagination-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d1d1d1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.pagination-dot.active {
+  background-color: #921313;
+  width: 28px;
+  border-radius: 10px;
 }

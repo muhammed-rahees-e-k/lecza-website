@@ -1,33 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import AOS from 'aos';
 import './GalleryPage.css';
 
 export default function GalleryPage() {
-  const [activeTab, setActiveTab] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categories = ['All', 'Living Areas', 'Bathrooms', 'Kitchens', 'Commercial', 'Outdoor', 'Details'];
+
+  const categoryParam = searchParams.get('category');
+  const initialTab = useMemo(() => {
+    if (!categoryParam) return 'All';
+    const matched = categories.find(
+      cat => cat.toLowerCase() === categoryParam.toLowerCase() ||
+        (cat === 'Living Areas' && categoryParam.toLowerCase().includes('living')) ||
+        (cat === 'Bathrooms' && categoryParam.toLowerCase().includes('bath')) ||
+        (cat === 'Kitchens' && categoryParam.toLowerCase().includes('kitchen')) ||
+        (cat === 'Commercial' && (categoryParam.toLowerCase().includes('commercial') || categoryParam.toLowerCase().includes('retail')))
+    );
+    return matched || 'All';
+  }, [categoryParam]);
+
+  const [activeTab, setActiveTab] = useState(initialTab);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
     AOS.init({
       duration: 800,
       easing: 'ease-out-cubic',
       once: false,
       offset: 50,
     });
-    AOS.refresh();
 
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (categoryParam) {
+      const matched = categories.find(
+        cat => cat.toLowerCase() === categoryParam.toLowerCase() ||
+          (cat === 'Living Areas' && categoryParam.toLowerCase().includes('living')) ||
+          (cat === 'Bathrooms' && categoryParam.toLowerCase().includes('bath')) ||
+          (cat === 'Kitchens' && categoryParam.toLowerCase().includes('kitchen')) ||
+          (cat === 'Commercial' && (categoryParam.toLowerCase().includes('commercial') || categoryParam.toLowerCase().includes('retail')))
+      );
+      if (matched) {
+        setActiveTab(matched);
+      }
+    }
+  }, [categoryParam]);
+
+  const handleTabClick = (cat) => {
+    setActiveTab(cat);
+    if (cat === 'All') {
+      setSearchParams({}, { replace: true });
+    } else {
+      setSearchParams({ category: cat }, { replace: true });
+    }
+  };
 
   const galleryItems = [
     { id: 1, src: '/01_living_room.png', title: 'Living Room', category: 'Living Areas' },
@@ -39,11 +74,11 @@ export default function GalleryPage() {
     { id: 7, src: '/07_tile_details.png', title: 'Tile Details', category: 'Details' },
   ];
 
-  const categories = ['All', 'Living Areas', 'Bathrooms', 'Kitchens', 'Commercial', 'Outdoor', 'Details'];
-
-  const filteredItems = activeTab === 'All'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeTab);
+  const filteredItems = useMemo(() => {
+    return activeTab === 'All'
+      ? galleryItems
+      : galleryItems.filter(item => item.category === activeTab);
+  }, [activeTab]);
 
   return (
     <div className="gallery-page-container">
@@ -55,7 +90,7 @@ export default function GalleryPage() {
         <nav id="site-nav-new" className={isMobileMenuOpen ? 'open' : ''} aria-label="Main navigation">
           <Link to="/#" onClick={() => setIsMobileMenuOpen(false)}>Home <span className="dot"></span></Link>
           <Link to="/#about" onClick={() => setIsMobileMenuOpen(false)}>About Us <span className="dot"></span></Link>
-          <Link to="/#products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
+          <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products <span className="dot"></span></Link>
           <Link to="/gallery" className="active" onClick={() => setIsMobileMenuOpen(false)}>Collection <span className="dot"></span></Link>
           <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us <span className="dot"></span></Link>
         </nav>
@@ -80,7 +115,7 @@ export default function GalleryPage() {
             <button
               key={cat}
               className={`filter-tab ${activeTab === cat ? 'active' : ''}`}
-              onClick={() => setActiveTab(cat)}
+              onClick={() => handleTabClick(cat)}
             >
               {cat}
             </button>
@@ -88,8 +123,8 @@ export default function GalleryPage() {
         </div>
 
         <div className="detailed-gallery-grid">
-          {filteredItems.map((item, idx) => (
-            <div key={item.id} className="detailed-gallery-item" data-aos="fade-up" data-aos-delay={(idx % 6) * 100}>
+          {filteredItems.map((item) => (
+            <div key={item.id} className="detailed-gallery-item">
               <img src={item.src} alt={item.title} onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('placeholder-bg'); }} />
               <div className="item-overlay">
                 <h3>{item.title}</h3>
